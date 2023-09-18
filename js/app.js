@@ -74,24 +74,21 @@ console.log('Connected');
 
 // LAB DEMO FOLLOW ALONG NOTES
 
-
+// a lot of ideas and information from Chatgpt (nothing pasted)
 let marion = {
   name: 'marion',
-  // minCustomers: 20,
-  // maxCustomers: 25,
   avgcookies: 6,
   HourlySales: [],
 
   randomCustomer: function () {
     return randomCustomersPerHour(5, 10);
-    // return Math.floor(Math.random() * (max - min + 1)) + min;
   },
 
   calcHourlySales: function () {
     for (let i = 0; i < 12; i++) {
       let customers = this.randomCustomer();
       console.log(customers);
-      let cookiesSold = Math.round(customers * this.avgcookies);
+      let cookiesSold = (customers * this.avgcookies);
       console.log(cookiesSold);
       this.HourlySales.push(cookiesSold);
     }
