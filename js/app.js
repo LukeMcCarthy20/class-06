@@ -72,35 +72,229 @@ console.log('Connected');
 //   return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
 // }
 
-// LAB DEMO FOLLOW ALONG NOTES
+// LAB DEMO FOLLOW ALONG NOTES ^
 
-// a lot of ideas and information from Chatgpt (nothing pasted)
-let marion = {
-  name: 'marion',
-  avgcookies: 6,
-  HourlySales: [],
 
-  randomCustomer: function () {
-    return randomCustomersPerHour(5, 10);
+
+
+
+// Ideas from chatgpt and messing around with random ideas below (nothing pasted)
+
+
+// let hours = ['6am','7am','8am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm']
+// let seattle = {
+//   name: 'seattle',
+
+//   avgcookies: 4.6
+//   HourlySales: [],
+
+//   randomCustomer: function () {
+//     return randomCustomersPerHour(5, 10);
+//   },
+
+//   calcHourlySales: function () {
+//     for (let i = 0; i < 12; i++) {
+//       let customers = this.randomCustomer();
+//       console.log(customers);
+//       let cookiesSold = (customers * this.avgcookies);
+//       console.log(cookiesSold);
+//       this.HourlySales.push(cookiesSold);
+//     }
+//   },
+
+// };
+
+// marion.randomCustomer();
+// marion.calcHourlySales();
+
+
+// function randomCustomersPerHour(minCustomers, maxCustomers) {
+
+//   return Math.floor(Math.random() * (maxCustomers - minCustomers) + minCustomers);
+// }
+
+
+
+
+
+// Code went over in class this morning. That I now understand better...
+
+
+let seattle = {
+  location: 'Seattle',
+  minCustomersPerHour: 23,
+  maxcustomersPerHour: 65,
+  cookiesPerHour: [],
+  dailycookies: 0,
+  avgcookies: 4.6,
+  randomcustomerperhour: function () {
+    return Math.floor(Math.random() * (this.maxcustomersPerHour - this.minCustomersPerHour + 1) + this.minCustomersPerHour);
   },
 
-  calcHourlySales: function () {
-    for (let i = 0; i < 12; i++) {
-      let customers = this.randomCustomer();
-      console.log(customers);
-      let cookiesSold = (customers * this.avgcookies);
-      console.log(cookiesSold);
-      this.HourlySales.push(cookiesSold);
-    }
-  },
 
 };
 
-marion.randomCustomer();
-marion.calcHourlySales();
+let tokyo = {
+  location: 'tokyo',
+  minCustomersPerHour: 3,
+  maxcustomersPerHour: 24,
+  cookiesPerHour: [],
+  dailycookies: 0,
+  avgcookies: 1.2,
+  randomcustomerperhour: function () {
+    return Math.floor(Math.random() * (this.maxcustomersPerHour - this.minCustomersPerHour + 1) + this.minCustomersPerHour);
+  },
 
 
-function randomCustomersPerHour(minCustomers, maxCustomers) {
+};
 
-  return Math.floor(Math.random() * (maxCustomers - minCustomers) + minCustomers);
+
+let dubai = {
+  location: 'dubai',
+  minCustomersPerHour: 11,
+  maxcustomersPerHour: 38,
+  cookiesPerHour: [],
+  dailycookies: 0,
+  avgcookies: 3.7,
+  randomcustomerperhour: function () {
+    return Math.floor(Math.random() * (this.maxcustomersPerHour - this.minCustomersPerHour + 1) + this.minCustomersPerHour);
+  },
+
+
+};
+
+
+let paris = {
+  location: 'paris',
+  minCustomersPerHour: 20,
+  maxcustomersPerHour: 38,
+  cookiesPerHour: [],
+  dailycookies: 0,
+  avgcookies: 2.3,
+  randomcustomerperhour: function () {
+    return Math.floor(Math.random() * (this.maxcustomersPerHour - this.minCustomersPerHour + 1) + this.minCustomersPerHour);
+  },
+
+
+};
+
+
+
+let lima = {
+  location: 'lima',
+  minCustomersPerHour: 2,
+  maxcustomersPerHour: 16,
+  cookiesPerHour: [],
+  dailycookies: 0,
+  avgcookies: 4.6,
+  randomcustomerperhour: function () {
+    return Math.floor(Math.random() * (this.maxcustomersPerHour - this.minCustomersPerHour + 1) + this.minCustomersPerHour);
+  },
+
+
+};
+
+function randomCustomerArray(shops) {
+  for (let i = 0; i < 14; i++) {
+    let customers = shops.randomcustomerperhour();
+    shops.cookiesPerHour.push(customers);
+  }
 }
+
+randomCustomerArray(seattle);
+randomCustomerArray(tokyo);
+randomCustomerArray(dubai);
+randomCustomerArray(paris);
+randomCustomerArray(lima);
+
+console.log(seattle.cookiesPerHour);
+console.log(tokyo.cookiesPerHour);
+console.log(dubai.cookiesPerHour);
+console.log(paris.cookiesPerHour);
+console.log(lima.cookiesPerHour);
+
+// Inspiration from demo and Emmas Lab ^ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Testing... 
+
+// function hourlyUl(shop) {
+//   let header = document.createElement('h2');
+//   console.log('h2: ', header);
+//   header.textContent = shop.location;
+
+//   let city = document.getElementById("locations");
+//   for (let i = 0; i < shop.hoursOpen - 1; i++) {
+//     let lists = document.createElement('li');
+//     lists.textContent = `${i + 6}:00 ${shop.cookiesPerHourArr[i]} cookies`;
+//     city.appendChild(lists);
+//   }
+//   let totalLists = document.createElement('li');
+//   city.appendChild(totalLists);
+// }
+
+
+// hourlyUl(seattle);
+// hourlyUl(tokyo);
+// hourlyUl(dubai);
+// hourlyUl(paris);
+// hourlyUl(lima);
+
+
+
+
+
+
+
+
+// Testing...
+
+
+
+// function displayResults(location) {
+//   let locationElement = document.getElementById(location.locations);
+//   let ul = document.createElement('ul');
+
+//   for (let i = 0; i < location.cookiesPerHour.length; i++) {
+//     let li = document.createElement('li');
+//     li.textContent = `${i + 6} AM: ${location.cookiesPerHour[i]} cookies`;
+//     ul.appendChild(li);
+//   }
+
+//   locationElement.appendChild(ul);
+// }
+
+
+// displayResults(seattle);
+// displayResults(tokyo);
+// displayResults(dubai);
+// displayResults(paris);
+// displayResults(lima);
+
+
+
+
+
+
+
+
+
+
