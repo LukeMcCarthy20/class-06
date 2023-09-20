@@ -141,6 +141,7 @@ function CookieShop(name, minCustomersPerHour, maxCustomersPerHour, avgCookiesPe
   this.totalDailySales = 0;
 }
 
+
 CookieShop.prototype.calculateHourlySales = function () {
   for (let hour = 6; hour <= 19; hour++) {
     let randomCustomers = Math.floor(Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1)) + this.minCustomersPerHour;
@@ -150,11 +151,13 @@ CookieShop.prototype.calculateHourlySales = function () {
   }
 };
 
+
 CookieShop.prototype.render = function () {
   let tableRow = document.createElement('tr');
   let locationCell = document.createElement('td');
   locationCell.textContent = this.name;
   tableRow.appendChild(locationCell);
+
 
   for (let hour = 6; hour <= 19; hour++) {
     let salesCell = document.createElement('td');
@@ -162,12 +165,15 @@ CookieShop.prototype.render = function () {
     tableRow.appendChild(salesCell);
   }
 
+
   let totalCell = document.createElement('td');
   totalCell.textContent = this.totalDailySales;
   tableRow.appendChild(totalCell);
 
+
   salesTable.appendChild(tableRow);
 };
+
 
 let locations = [
   new CookieShop('Seattle', 23, 65, 6.3),
@@ -177,11 +183,14 @@ let locations = [
   new CookieShop('Lima', 2, 16, 4.6)
 ];
 
+
 let salesTable = document.getElementById('sales-table');
+
 
 function renderTableHeader() {
   let tableRow = document.createElement('tr');
   let headers = ['Location'];
+
 
   for (let hour = 6; hour <= 19; hour++) {
     if (hour === 12) {
@@ -193,7 +202,9 @@ function renderTableHeader() {
     }
   }
 
+
   headers.push('Daily Location Total');
+
 
   headers.forEach(function (headerText) {
     let headerCell = document.createElement('th');
@@ -201,8 +212,10 @@ function renderTableHeader() {
     tableRow.appendChild(headerCell);
   });
 
+
   salesTable.appendChild(tableRow);
 }
+
 
 function renderTableFooter() {
   let tableRow = document.createElement('tr');
@@ -210,7 +223,9 @@ function renderTableFooter() {
   footerCell.textContent = 'Totals';
   tableRow.appendChild(footerCell);
 
+
   let grandTotal = Array(14).fill(0);
+
 
   locations.forEach(function (location) {
     location.hourlySales.forEach(function (hourlySale, hour) {
@@ -218,13 +233,27 @@ function renderTableFooter() {
     });
   });
 
+
   grandTotal.forEach(function (total) {
     let totalCell = document.createElement('td');
     totalCell.textContent = total;
     tableRow.appendChild(totalCell);
   });
 
+
   salesTable.appendChild(tableRow);
 }
 
+
 renderTableHeader();
+
+
+locations.forEach(function (location) {
+  location.calculateHourlySales();
+  location.render();
+});
+
+
+renderTableFooter();
+
+
