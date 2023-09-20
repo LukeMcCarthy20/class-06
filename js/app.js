@@ -132,6 +132,7 @@ console.log('Connected');
 
 //Help from chatgpt and this mornings 9/20/23 demo. 
 
+
 function CookieShop(name, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerCustomer) {
   this.name = name;
   this.minCustomersPerHour = minCustomersPerHour;
