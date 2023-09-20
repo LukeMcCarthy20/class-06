@@ -130,6 +130,8 @@ console.log('Connected');
 // hourlyCookies(lima);
 
 
+//Help from chatgpt but I understand all this. 
+
 function CookieShops(location, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerCustomer) {
   this.location = location;
   this.minCustomersPerHour = minCustomersPerHour;
@@ -192,7 +194,6 @@ paris.displayHourlyCookies();
 
 lima.calculateHourlyCookies();
 lima.displayHourlyCookies();
-
 
 
 
