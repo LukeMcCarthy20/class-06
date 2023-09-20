@@ -213,6 +213,14 @@ console.log(dubai.cookiesPerHour);
 console.log(paris.cookiesPerHour);
 console.log(lima.cookiesPerHour);
 
+
+
+
+
+
+
+
+
 // Inspiration from demo and Emmas Lab ^ 
 
 
