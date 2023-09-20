@@ -197,8 +197,62 @@ lima.displayHourlyCookies();
 
 
 
+function renderHeaderRow() {
+  let headerRow = document.getElementById('tableHeader');
+  let tr = document.createElement('tr');
+  let emptyCell = document.createElement('th');
+  tr.appendChild(emptyCell);
+  for (let i = 6; i <= 19; i++) {
+    let th = document.createElement('th');
+    th.textContent = i + ':00am';
+    tr.appendChild(th);
+  }
+  let dailyTotalCell = document.createElement('th');
+  dailyTotalCell.textContent = 'Daily Location Total';
+  tr.appendChild(dailyTotalCell);
+  headerRow.appendChild(tr);
+}
+
+function renderStoreRow(location) {
+  let tbody = document.getElementById('tableBody');
+  let tr = document.createElement('tr');
+  let storeNameCell = document.createElement('td');
+  storeNameCell.textContent = location.location;
+  tr.appendChild(storeNameCell);
+  for (let cookies of location.cookiesPerHour) {
+    let td = document.createElement('td');
+    td.textContent = cookies;
+    tr.appendChild(td);
+  }
+  let dailyTotalCell = document.createElement('td');
+  dailyTotalCell.textContent = location.cookiesPerHour.reduce((a, b) => a + b, 0);
+  tr.appendChild(dailyTotalCell);
+  tbody.appendChild(tr);
+}
+
+function renderFooterRow(locations) {
+  let footerRow = document.getElementById('tableFooter');
+  let tr = document.createElement('tr');
+  let totalsCell = document.createElement('td');
+  totalsCell.textContent = 'Totals';
+  tr.appendChild(totalsCell);
+  for (let i = 6; i <= 19; i++) {
+    let hourlyTotal = locations.reduce((total, location) => total + location.cookiesPerHour[i - 6], 0);
+    let td = document.createElement('td');
+    td.textContent = hourlyTotal;
+    tr.appendChild(td);
+  }
+  let grandTotal = locations.reduce((total, location) => total + location.cookiesPerHour.reduce((a, b) => a + b, 0), 0);
+  let grandTotalCell = document.createElement('td');
+  grandTotalCell.textContent = grandTotal;
+  tr.appendChild(grandTotalCell);
+  footerRow.appendChild(tr);
+}
+
+renderHeaderRow();
+for (let location of [seattle, tokyo, dubai, paris, lima]) {
+  renderStoreRow(location);
+}
 
 
-
-
-
+renderFooterRow([seattle, tokyo, dubai, paris, lima]);
