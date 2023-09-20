@@ -215,13 +215,9 @@ console.log('Connected');
 
 
 
-
-
-
-
-
-
 // Inspiration from demo and Emmas Lab ^ 
+
+
 
 
 
@@ -352,76 +348,6 @@ hourlyCookies(dubai);
 hourlyCookies(paris);
 
 hourlyCookies(lima);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Testing... 
-
-// function hourlyUl(shop) {
-//   let header = document.createElement('h2');
-//   console.log('h2: ', header);
-//   header.textContent = shop.location;
-
-//   let city = document.getElementById("locations");
-//   for (let i = 0; i < shop.hoursOpen - 1; i++) {
-//     let lists = document.createElement('li');
-//     lists.textContent = `${i + 6}:00 ${shop.cookiesPerHourArr[i]} cookies`;
-//     city.appendChild(lists);
-//   }
-//   let totalLists = document.createElement('li');
-//   city.appendChild(totalLists);
-// }
-
-
-// hourlyUl(seattle);
-// hourlyUl(tokyo);
-// hourlyUl(dubai);
-// hourlyUl(paris);
-// hourlyUl(lima);
-
-
-
-
-
-
-
-
-// Testing...
-
-
-
-// function displayResults(location) {
-//   let locationElement = document.getElementById(location.locations);
-//   let ul = document.createElement('ul');
-
-//   for (let i = 0; i < location.cookiesPerHour.length; i++) {
-//     let li = document.createElement('li');
-//     li.textContent = `${i + 6} AM: ${location.cookiesPerHour[i]} cookies`;
-//     ul.appendChild(li);
-//   }
-
-//   locationElement.appendChild(ul);
-// }
-
-
-// displayResults(seattle);
-// displayResults(tokyo);
-// displayResults(dubai);
-// displayResults(paris);
-// displayResults(lima);
-
-
 
 
 
