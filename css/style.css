@@ -1,3 +1,14 @@
 body {
   background-color: grey;
 }
+
+thead {
+  font-size: 400px;
+}
+
+
+td, th {
+  border: 2px solid;
+  text-align: left;
+  padding: 8px;
+}
