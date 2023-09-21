@@ -103,12 +103,14 @@ function renderTableFooter() {
   });//this close the first foreach
 
   //we  need another nested for loop to calculate column totals
-  for(let i = 0; i <= 13; i++ ){
-    for(let j = 0; j < locations.length; j++){
-      console.log(locations[j].hourlySales[i]);
-      //add the column
-      //create the html element td
-      //append each td's to the footer row..
+  for(let i = 0; i<=13; i++){
+    let tableDataCell = document.createElement('td');
+    let columnTotal= 0;
+    for(let j = 0; j <locations.length; j++){
+      columnTotal += locations[j].hourlySales[i];
+      console.log(columnTotal);
+      tableDataCell.textContent = columnTotal;
+      tableRow.appendChild(tableDataCell);
     }
   }
   // grandTotal.forEach(function (total) {
