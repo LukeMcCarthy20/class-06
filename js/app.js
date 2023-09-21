@@ -228,10 +228,3 @@ function renderTableFooter() {
 }
 
 renderTableHeader();
-
-locations.forEach(function (location) {
-  location.calculateHourlySales();
-  location.render();
-});
-
-renderTableFooter();
