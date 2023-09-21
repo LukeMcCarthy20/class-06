@@ -27,13 +27,10 @@ CookieShop.prototype.calculateHourlySales = function () {
 
 
 CookieShop.prototype.render = function () {
-
-
   let tableRow = document.createElement('tr');
   let locationCell = document.createElement('td');
   locationCell.textContent = this.name;
   tableRow.appendChild(locationCell);
-
 
   for (let hour = 6; hour <= 19; hour++) {
     let salesCell = document.createElement('td');
@@ -41,11 +38,9 @@ CookieShop.prototype.render = function () {
     tableRow.appendChild(salesCell);
   }
 
-
   let totalCell = document.createElement('td');
   totalCell.textContent = this.totalDailySales;
   tableRow.appendChild(totalCell);
-
 
   salesTable.appendChild(tableRow);
 };
@@ -94,31 +89,26 @@ function renderTableFooter() {
   let footerCell = document.createElement('td');
   footerCell.textContent = 'Totals';
   tableRow.appendChild(footerCell);
+
+
+
   let grandTotal = Array(14).fill(0);
-
+  let finalTotalDailySales = 0;
   locations.forEach(function (location) {
-    //((element) => console.log(element));
     location.hourlySales.forEach((hourlySale,hour) => {
-      // console.log('hourly sale amount',hourlySale);
-      // console.log('hour?',hour);
       grandTotal[hour] = hourlySale;
-      console.log('array',grandTotal);
     });
-  });
-  let totalGrandTotal = 0;
-  for(let i = 0; i < grandTotal.length; i++){
-    console.log(grandTotal[i]);
-    totalGrandTotal += grandTotal[i];
-    console.log('grand total adding up: ',totalGrandTotal);
-  }
-  console.log('final number',totalGrandTotal);
+    finalTotalDailySales = finalTotalDailySales + location.totalDailySales;
+    console.log('one big number',finalTotalDailySales);
+  });//this close the first foreach
 
+  //we  need another nested for loop to calculate column totals
 
-  grandTotal.forEach(function (total) {
-    let totalCell = document.createElement('td');
-    totalCell.textContent = total;
-    tableRow.appendChild(totalCell);
-  });
+  // grandTotal.forEach(function (total) {
+  let totalCell = document.createElement('td');
+  totalCell.textContent = finalTotalDailySales;
+  tableRow.appendChild(totalCell);
+  // });
 
 
   salesTable.appendChild(tableRow);
