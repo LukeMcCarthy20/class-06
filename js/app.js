@@ -133,6 +133,11 @@ console.log('Connected');
 //Help from chatgpt and this mornings 9/20/23 demo. 
 
 
+
+let form = document.getElementById('cookie-form');
+
+
+
 function CookieShop(name, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerCustomer) {
   this.name = name;
   this.minCustomersPerHour = minCustomersPerHour;
@@ -258,3 +263,34 @@ locations.forEach(function (location) {
 renderTableFooter();
 
 
+function handletheformSubmitted(event) {
+  event.preventDefault();
+  console.log(event.target);
+  let name = event.target.name.value;
+  // let minCustomersPerHour = event.target.minCustomersPerHour.value;
+  let minCustomerInput = document.getElementById('MinCustomers');
+  let minCustomersPerHour = minCustomerInput.value;
+  console.log(minCustomerInput);
+  console.log(minCustomersPerHour);
+  let maxCustomerInput = document.getElementById('MaxCustomers');
+  let maxCustomersPerHour = maxCustomerInput.value;
+  let avgcookiesInput = document.getElementById('MaxCustomers');
+  let avgCookiesPerCustomer = avgcookiesInput.value;
+
+
+
+
+  console.log(name);
+
+
+  let newShop = new CookieShop(name,minCustomersPerHour,maxCustomersPerHour,avgCookiesPerCustomer);
+  console.log(newShop);
+  newShop.render();
+
+  let form = document.getElementById('cookie-form');
+  form.reset;
+
+}
+
+
+form.addEventListener('submit', handletheformSubmitted);
