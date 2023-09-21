@@ -3,3 +3,59 @@ td, th {
   text-align: left;
   padding: 8px;
 }
+
+body {
+  margin:0;
+  padding:0px;
+  background-color: grey;
+
+}
+
+header {
+
+  background-color: black;
+  padding: 10px;
+  width:1920px;
+  height:70px;
+
+
+}
+
+
+nav li {
+  margin-right: 250px;
+  margin-left:100px;
+  float: right;
+  margin-top: -10px;
+  
+
+
+}
+
+nav a:hover {
+  color:aqua;
+
+
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+h2{
+  font-size:1.5em;
+  margin-top: 50px;
+}
+
+main {
+  margin-top: 50px;
+  display:flex;
+  justify-content: center;
+  background-color: white;
+}
+
+main p {
+  font-weight: bold;
+}
