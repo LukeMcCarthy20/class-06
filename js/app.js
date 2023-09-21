@@ -247,6 +247,7 @@ function renderTableFooter() {
   });
 
 
+
   salesTable.appendChild(tableRow);
 }
 
@@ -283,8 +284,9 @@ function handletheformSubmitted(event) {
   console.log(name);
 
 
-  let newShop = new CookieShop(name,minCustomersPerHour,maxCustomersPerHour,avgCookiesPerCustomer);
+  let newShop = new CookieShop(name, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerCustomer);
   console.log(newShop);
+  newShop.calculateHourlySales();
   newShop.render();
 
   let form = document.getElementById('cookie-form');
