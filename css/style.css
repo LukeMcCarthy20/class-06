@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&family=Dancing+Script:wght@600&display=swap');
 td, th {
   border: 2px solid;
   text-align: left;
   padding: 8px;
 }
+
+table{
+  background-color: aqua;
+}
+
+h2{
+  font-family: 'Dancing Script';
+}
+
 
 body {
   margin:0;
